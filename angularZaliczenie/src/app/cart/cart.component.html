@@ -1,0 +1,24 @@
+<h1>Twój koszyk</h1>
+<div *ngIf="getCart().length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Lp.</th>
+        <th>Nazwa książki</th>
+        <th>Cena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of getCart(); let i=index;">
+        <td>{{ i+1 }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.amount }}</td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td><strong>Suma: {{ calculateTotal() }}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="getCart().length === 0">Nie ma książek w twoim koszyku</div>
